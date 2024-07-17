@@ -42,20 +42,9 @@ public class Program
     {
         try
         {
-            Debug.WriteLine("Checking for environment variables...");
-
-            if (string.IsNullOrEmpty(EndpointUri) || string.IsNullOrEmpty(PrimaryKey))
-            {
-                Console.Error.WriteLine("Environment variables not found. Exiting program.");
-                return;
-            }
-
-            Debug.WriteLine("Environment variables found.");
-
             Console.WriteLine("Beginning operations...\n");
 
-            var p = new Program();
-            await p.CosmosAsync();
+            await new Program().CosmosAsync();
         }
         catch (CosmosException de)
         {
